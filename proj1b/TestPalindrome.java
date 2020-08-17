@@ -18,7 +18,7 @@ public class TestPalindrome {
 
     @Test
     public void TestisPalindrome() {
-    String actual1 = "abcasdas";
+    String actual1 = "abs";
     String actual2 = "abcba";
     String actual3 = "a";
     String actual4 = "";

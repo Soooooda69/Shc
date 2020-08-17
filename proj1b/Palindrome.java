@@ -10,19 +10,19 @@ public class Palindrome {
     }
 
     public boolean isPalindrome(String word) {
-        Deque<Character> wordDeque = new LinkedListDeque<>();
-        int l = word.length();
         Deque origin = wordToDeque(word);
+        return isPalindromeHelper(origin);
+    }
 
-        if (l == 0 || l == 1) {
+    public boolean isPalindromeHelper(Deque origin) {
+
+        if (origin.size() <= 1) {
             return true;
         }
-        for (int i = 0; i <= l / 2; i++) {
-            if (origin.get(i) == origin.get(l - 1 - i)) {
-                return true;
-            }
+
+        if (origin.removeFirst() != origin.removeLast()) {
             return false;
         }
-        return false;
+        return isPalindromeHelper(origin);
     }
 }
