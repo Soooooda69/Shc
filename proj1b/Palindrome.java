@@ -25,4 +25,21 @@ public class Palindrome {
         }
         return isPalindromeHelper(origin);
     }
+    /**the word is a palindrome according to the
+     * character comparison test provided by the CharacterComparator.*/
+    public boolean isPalindrome(String word, CharacterComparator cc) {
+        Deque origin = wordToDeque(word);
+        return isPalindromeHelper(origin,cc);
+
+    }
+
+    private boolean isPalindromeHelper (Deque<Character> origin, CharacterComparator cc) {
+        if (origin.size()<=1) {
+            return true;
+        }
+        if (!cc.equalChars(origin.removeFirst(),origin.removeLast())) {
+            return false;
+        }
+        return isPalindromeHelper(origin,cc);
+    }
 }
